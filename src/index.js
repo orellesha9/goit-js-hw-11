@@ -1,12 +1,23 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
-import { searchElemenets } from './search-api';
+import { searchElements } from './search-api';
 
-
-searchElemenets("котики").then(data => console.log(data));
-// console.log(searchElemenets(`котики`));
 const refs = {
-  btnSubmit: document.querySelector(`#search-form`)
+  btnSubmit: document.querySelector(`#search-form`),
+  gallery: document.querySelector(`.gallery`),
 };
+
+
+
+
+searchElements(["котики"])
+  .then(data => {
+    console.log('Отримані дані:', data);
+  })
+  .catch(error => {
+    console.error('Sorry, there are no images matching your search query. Please try again.');
+  });
+// console.log(searchElemenets(`котики`));
+
 
 
