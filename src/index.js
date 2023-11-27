@@ -5,24 +5,28 @@ import { searchElements } from './search-api';
 const refs = {
   btnSubmit: document.querySelector(`#search-form`),
   gallery: document.querySelector(`.gallery`),
+  input: document.querySelector(`.search`),
 };
 
+refs.btnSubmit.addEventListener('submit', handleSubmit);
 
+function handleSubmit(event) {
+  event.preventDefault();
+  currentInput = refs.input.value;
+  console.log(currentInput);
 
-
-searchElements(["котики"])
-  .then(data => {
-  result =  data
-     .map(
-       ({
-         webformatURL,
-         largeImageURL,
-         tags,
-         likes,
-         views,
-         comments,
-         downloads,
-       }) => `<div class="photo-card">
+  searchElements(currentInput).then(data => {
+    result = data
+      .map(
+        ({
+          webformatURL,
+          largeImageURL,
+          tags,
+          likes,
+          views,
+          comments,
+          downloads,
+        }) => `<div class="photo-card">
   <img src="${webformatURL}" alt="${tags}" loading="lazy" />
   <div class="info">
     <p class="info-item">
@@ -39,15 +43,12 @@ searchElements(["котики"])
     </p>
   </div>
 </div>`
-   )
-
-     .join('');
+      )
+      .join('');
   })
   .catch(error => {
-    console.error('Sorry, there are no images matching your search query. Please try again.');
-  });
-// console.log(searchElemenets(`котики`));
-
-
-
-console.log(searchElements(['котики']));
+    console.log(
+      'Sorry, there are no images matching your search query. Please try again.'
+    );
+  })
+}
