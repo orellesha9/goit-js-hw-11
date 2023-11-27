@@ -53,6 +53,7 @@ function handleLoadMore() {
   page += 1;
   console.log(hits);
   let currentInput = refs.input.value;
+  
   // refs.loadMoreBtn.disabled = true
   searchElements(currentInput, page)
     .then(data => {
@@ -61,6 +62,14 @@ function handleLoadMore() {
         createMarkup(data)
         
       );
+      const { height: cardHeight } = document
+        .querySelector('.gallery')
+        .firstElementChild.getBoundingClientRect();
+
+      window.scrollBy({
+        top: cardHeight * 2,
+        behavior: 'smooth',
+      });
  lightbox.refresh();
       if (hits >= data.totalHits) {
         refs.loadMoreBtn.style.display = 'none';
