@@ -17,9 +17,17 @@ function handleSubmit(event) {
   console.log(currentInput);
 
   searchElements(currentInput)
-    .then(data => (refs.gallery.innerHTML = createMarkup(data)))
+    .then(data => {
+      if (data.total === 0) {
+        Notiflix.Notify.failure(
+          'Sorry, there are no images matching your search query. Please try again.'
+        );
+      } else {
+        refs.gallery.innerHTML = createMarkup(data);
+        Notiflix.Notify.success(`Hooray! We found ${data.total} images`);
+      }
+    })
     .catch(error => {
       console.log(error);
     });
-    
-  }
+}

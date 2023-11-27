@@ -1,6 +1,13 @@
 @import './common';
 @import './example';
 
+.load-more {
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+}
+
+
 .gallery {
     display: flex;
     flex-wrap: wrap;
