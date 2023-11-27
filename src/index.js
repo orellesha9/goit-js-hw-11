@@ -23,7 +23,7 @@ let page = 1;
 let hits = 40;
 function handleSubmit(event) {
   event.preventDefault();
-  currentInput = refs.input.value;
+ let currentInput = refs.input.value;
   // console.log(currentInput);
 
   searchElements(currentInput, page=1)
