@@ -4,10 +4,10 @@ import axios from 'axios';
 
 
 
-
-export async function searchElements(arg) {
+let page = 1;
+export async function searchElements(arg,page) {
   const { data } = await axios.get(
-    `https://pixabay.com/api/?key=11809160-30735c542d1a44d0753f02a93&image_type=photo&orientation=horizontal&safesearch=true&q=${arg}`
+    `https://pixabay.com/api/?key=11809160-30735c542d1a44d0753f02a93&image_type=photo&orientation=horizontal&safesearch=true&per_page=40&q=${arg}&page=${page}`
   );
   console.log(data);
   return data;

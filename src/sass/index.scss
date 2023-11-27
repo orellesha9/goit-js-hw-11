@@ -2,9 +2,22 @@
 @import './example';
 
 .load-more {
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
+    display: inline-block;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+.load-more:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
 }
 
 
@@ -15,7 +28,7 @@
 }
 
 .photo-card {
-  width: 250px; /* Ширина фото-картки */
+  width: 280px; /* Ширина фото-картки */
   margin: 10px; /* Зовнішні відступи */
   padding: 10px; /* Внутрішні відступи */
   border: 1px solid #ccc; /* Рамка */
