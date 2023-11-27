@@ -51,7 +51,7 @@ function handleLoadMore() {
   hits += 40;
   page += 1;
   // console.log(hits);
-   currentInput = refs.input.value;
+  let currentInput = refs.input.value;
   // refs.loadMoreBtn.disabled = true
   searchElements(currentInput, page)
     .then(data => {
