@@ -1,47 +1,36 @@
 @import './common';
 @import './example';
 
-.load-more {
-    display: inline-block;
-  padding: 10px 20px;
-  font-size: 1.2em;
-  font-weight: bold;
-  text-align: center;
-  text-transform: uppercase;
-  border: none;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
-}
-.load-more:hover {
+.search-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
   background-color: #0056b3;
-  transform: scale(1.05);
+  padding-top: 10px;
+  padding-bottom: 10;
 }
+
 
 
 .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .photo-card {
   width: 280px; /* Ширина фото-картки */
   margin: 10px; /* Зовнішні відступи */
-  padding: 10px; /* Внутрішні відступи */
   border: 1px solid #ccc; /* Рамка */
   border-radius: 5px; /* Закруглені кути */
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Тінь */
   overflow: hidden; /* Обрізання контенту за межами блоку */
-
 }
 
 /* Стилі для зображення всередині фото-картки */
 .photo-card img {
   width: 100%; /* Розмір зображення 100% ширини батьківського контейнера */
-  height: 70%; /* Автоматична висота зображення */
+  height: 75%; /* Автоматична висота зображення */
   display: block; /* Блочний елемент */
   border-radius: 5px; /* Закруглені кути */
 }
@@ -52,6 +41,47 @@
 // }
 
 .info {
-    size: 20px;
- display: flex;
+  display: flex;
+}
+
+p {
+  text-align: center;
+  font-size: 13px;
+  // display: flex;
+}
+.load-more {
+ display: none;
+  margin: 0 auto 20px;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+.load-more:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+
+
+
+.wrapper {
+  height: 1000px; /* Змініть висоту для тестування прокрутки */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-form {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: #0056b3;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

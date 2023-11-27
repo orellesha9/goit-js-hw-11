@@ -2,6 +2,14 @@ import axios from 'axios';
 import Notiflix from 'notiflix';
 import { searchElements } from './search-api';
 import { createMarkup } from './search-api';
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
+let lightbox = new SimpleLightbox('.gallery a', {
+         captionsData: 'alt', // атрибут значення якого буде показано
+          captionDelay: 250, // затримка перед тим як показувати текст
+   });
+
 
 const refs = {
   btnSubmit: document.querySelector(`#search-form`),
@@ -16,7 +24,7 @@ hits = 40;
 function handleSubmit(event) {
   event.preventDefault();
   currentInput = refs.input.value;
-  console.log(currentInput);
+  // console.log(currentInput);
 
   searchElements(currentInput, page=1)
     .then(data => {
@@ -26,9 +34,10 @@ function handleSubmit(event) {
         );
       } else {
         refs.gallery.innerHTML = createMarkup(data);
-        refs.loadMoreBtn.style.display = 'inline-block';
+        refs.loadMoreBtn.style.display = 'block';
         refs.loadMoreBtn.addEventListener('click', handleLoadMore);
         Notiflix.Notify.success(`Hooray! We found ${data.total} images`);
+        lightbox.refresh();
         
       }
     })
@@ -41,7 +50,7 @@ function handleSubmit(event) {
 function handleLoadMore() {
   hits += 40;
   page += 1;
-  console.log(hits);
+  // console.log(hits);
    currentInput = refs.input.value;
   // refs.loadMoreBtn.disabled = true
   searchElements(currentInput, page)
@@ -49,8 +58,9 @@ function handleLoadMore() {
       refs.gallery.insertAdjacentHTML(
         'beforeend',
         createMarkup(data)
+        
       );
-
+ lightbox.refresh();
       if (hits >= data.totalHits) {
         refs.loadMoreBtn.style.display = 'none';
         Notiflix.Notify.failure(
