@@ -20,7 +20,7 @@ const refs = {
 refs.loadMoreBtn.style.display = 'none';
 refs.btnSubmit.addEventListener('submit', handleSubmit);
 let page = 1;
-hits = 40;
+let hits = 40;
 function handleSubmit(event) {
   event.preventDefault();
   currentInput = refs.input.value;
