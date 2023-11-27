@@ -1,2 +1,37 @@
 @import './common';
 @import './example';
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.photo-card {
+  width: 250px; /* Ширина фото-картки */
+  margin: 10px; /* Зовнішні відступи */
+  padding: 10px; /* Внутрішні відступи */
+  border: 1px solid #ccc; /* Рамка */
+  border-radius: 5px; /* Закруглені кути */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Тінь */
+  overflow: hidden; /* Обрізання контенту за межами блоку */
+
+}
+
+/* Стилі для зображення всередині фото-картки */
+.photo-card img {
+  width: 100%; /* Розмір зображення 100% ширини батьківського контейнера */
+  height: 70%; /* Автоматична висота зображення */
+  display: block; /* Блочний елемент */
+  border-radius: 5px; /* Закруглені кути */
+}
+
+/* Стилі для блоку інформації всередині фото-картки */
+// .photo-card .info {
+//   margin-top: 10px; /* Зовнішній відступ зверху */
+// }
+
+.info {
+    size: 20px;
+ display: flex;
+}
