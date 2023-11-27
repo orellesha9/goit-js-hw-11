@@ -33,6 +33,7 @@ function handleSubmit(event) {
           'Sorry, there are no images matching your search query. Please try again.'
         );
       } else {
+        hits = 40;
         refs.gallery.innerHTML = createMarkup(data);
         refs.loadMoreBtn.style.display = 'block';
         refs.loadMoreBtn.addEventListener('click', handleLoadMore);
@@ -50,7 +51,7 @@ function handleSubmit(event) {
 function handleLoadMore() {
   hits += 40;
   page += 1;
-  // console.log(hits);
+  console.log(hits);
   let currentInput = refs.input.value;
   // refs.loadMoreBtn.disabled = true
   searchElements(currentInput, page)
@@ -67,7 +68,9 @@ function handleLoadMore() {
           "We're sorry, but you've reached the end of search results."
         );
         refs.loadMoreBtn.removeEventListener('click', handleLoadMore);
+         let hits = 40;
         return;
+       
       }
 
       refs.loadMoreBtn.style.display = 'block';
